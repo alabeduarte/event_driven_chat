@@ -20,7 +20,7 @@ defmodule EventDrivenChat.MixProject do
   def application do
     [
       mod: {EventDrivenChat.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :event_bus]
     ]
   end
 
