@@ -16,7 +16,6 @@ defmodule EventDrivenChatWeb.ChatSubscriptions do
 
   defp init_subscriptions() do
     TheBus.subscribe(:pinged)
-    TheBus.subscribe(:user_joined, OnUserJoined)
     TheBus.subscribe(:message_received, OnMessageReceived)
   end
 end
