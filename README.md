@@ -3,6 +3,8 @@
 Spike around abstracting event bus into a phoenix application to explore some
 event-driven-architecture ideas.
 
+Credits to https://github.com/dwyl/phoenix-chat-example
+
 ## Running locally
 
 To start your Phoenix server:
