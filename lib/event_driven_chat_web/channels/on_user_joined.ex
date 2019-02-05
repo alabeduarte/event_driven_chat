@@ -1,5 +1,6 @@
-defmodule EventDrivenChat.VerboseSubscriber do
+defmodule EventDrivenChatWeb.OnUserJoined do
   require Logger
+  alias EventDrivenChat.Message
 
   def process(event_shadow) do
     GenServer.cast(__MODULE__, event_shadow)
@@ -12,7 +13,14 @@ defmodule EventDrivenChat.VerboseSubscriber do
 
   def handle_cast({topic, id}, state) do
     event = EventBus.fetch_event({topic, id})
-    Logger.info(fn -> inspect(event) end)
+
+    # Message.get_messages()
+    # |> Enum.each(fn msg ->
+    #   push(socket, Atom.to_string(topic), %{
+    #     name: msg.name,
+    #     message: msg.message
+    #   })
+    # end)
 
     {:noreply, [{topic, id} | state]}
   end

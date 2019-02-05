@@ -1,5 +1,7 @@
-defmodule EventDrivenChat.VerboseSubscriber do
+defmodule EventDrivenChatWeb.OnMessageReceived do
   require Logger
+  alias EventDrivenChat.Message
+  alias EventDrivenChat.Repo
 
   def process(event_shadow) do
     GenServer.cast(__MODULE__, event_shadow)
@@ -12,7 +14,7 @@ defmodule EventDrivenChat.VerboseSubscriber do
 
   def handle_cast({topic, id}, state) do
     event = EventBus.fetch_event({topic, id})
-    Logger.info(fn -> inspect(event) end)
+    Message.changeset(%Message{}, event.data) |> Repo.insert()
 
     {:noreply, [{topic, id} | state]}
   end

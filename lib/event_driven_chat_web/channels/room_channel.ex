@@ -1,6 +1,6 @@
 defmodule EventDrivenChatWeb.RoomChannel do
   use EventDrivenChatWeb, :channel
-  alias EventDrivenChatWeb.TheBus
+  alias EventDrivenChat.TheBus
 
   def join("room:lobby", payload, socket) do
     if authorized?(payload) do
@@ -20,9 +20,9 @@ defmodule EventDrivenChatWeb.RoomChannel do
 
   # It is also common to receive messages from the client and
   # broadcast to everyone in the current topic (room:lobby).
-  def handle_in("shout", payload, socket) do
-    broadcast(socket, "shout", payload)
-    TheBus.publish(:shouted, %{data: payload})
+  def handle_in("message_received", payload, socket) do
+    TheBus.publish(:message_received, %{data: payload})
+    broadcast(socket, "message_received", payload)
     {:noreply, socket}
   end
 

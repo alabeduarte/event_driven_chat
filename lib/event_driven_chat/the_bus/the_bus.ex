@@ -1,7 +1,7 @@
-defmodule EventDrivenChatWeb.TheBus do
+defmodule EventDrivenChat.TheBus do
   alias EventBus.Model.Event
 
-  def subscribe(topic, subscriber \\ EventDrivenChatWeb.VerboseSubscriber) do
+  def subscribe(topic, subscriber \\ EventDrivenChat.VerboseSubscriber) do
     EventBus.register_topic(topic)
     EventBus.subscribe({subscriber, [".*"]})
 

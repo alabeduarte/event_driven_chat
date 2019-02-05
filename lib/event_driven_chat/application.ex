@@ -10,7 +10,7 @@ defmodule EventDrivenChat.Application do
     children = [
       EventDrivenChat.Repo,
       EventDrivenChatWeb.Endpoint,
-      EventDrivenChat.TheBusSupervisor
+      EventDrivenChatWeb.ChatSubscriptions
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
