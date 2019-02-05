@@ -8,3 +8,11 @@ config :event_driven_chat, EventDrivenChatWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Configure your database
+config :event_driven_chat, EventDrivenChat.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "event_driven_chat_test",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox

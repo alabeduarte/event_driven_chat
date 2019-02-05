@@ -8,8 +8,9 @@ defmodule EventDrivenChat.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      EventDrivenChat.TheBusSupervisor,
-      EventDrivenChatWeb.Endpoint
+      EventDrivenChat.Repo,
+      EventDrivenChatWeb.Endpoint,
+      EventDrivenChat.TheBusSupervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

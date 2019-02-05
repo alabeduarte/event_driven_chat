@@ -5,12 +5,19 @@ event-driven-architecture ideas.
 
 Credits to https://github.com/dwyl/phoenix-chat-example
 
+## Setup
+
+Make sure you have postgress running on port `5432` (easiest way is to setup a
+docker container via [Kitematic](https://kitematic.com/))
+
+```
+$ make install
+```
+
 ## Running locally
 
-To start your Phoenix server:
-
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+```
+$ make start
+```
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.

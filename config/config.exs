@@ -7,10 +7,13 @@
 # General application configuration
 use Mix.Config
 
+config :event_driven_chat,
+  ecto_repos: [EventDrivenChat.Repo]
+
 # Configures the endpoint
 config :event_driven_chat, EventDrivenChatWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "nW/aWCy0lx1akmQhCJwtOxQjFpWsApjJe5R8iLnQihEnORlksmnR8HH/y9DqhJmC",
+  secret_key_base: "V4BmWpGfJdDVE+3626R9HL5DPhFnjcLxFSJpgnRy/bphjc1a4vIvGVSHbfaUOs58",
   render_errors: [view: EventDrivenChatWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: EventDrivenChat.PubSub, adapter: Phoenix.PubSub.PG2]
 
